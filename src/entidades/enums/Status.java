@@ -1,4 +1,4 @@
-package enums;
+package entidades.enums;
 
 public enum Status {
     PENDENTE,

@@ -1,7 +1,7 @@
 package entidades;
 
-import enums.Modalidade;
-import enums.TipoOportunidade;
+import entidades.enums.Modalidade;
+import entidades.enums.TipoOportunidade;
 
 public class Oportunidade {
     private int id;

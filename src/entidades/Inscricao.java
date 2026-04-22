@@ -1,6 +1,6 @@
 package entidades;
 
-import enums.Status;
+import entidades.enums.Status;
 
 public class Inscricao {
     private int id;
