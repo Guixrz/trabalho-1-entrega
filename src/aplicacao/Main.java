@@ -17,6 +17,8 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
+        //OBBBBBBBBBBBBBBBBaaaaaa
+
         // repositórios(feitos de arrayList)
         UsuarioRepositorio usuarioRepo = new UsuarioRepositorio();
         OportunidadeRepositorio oportunidadeRepo = new OportunidadeRepositorio();
