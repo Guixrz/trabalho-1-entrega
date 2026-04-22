@@ -1,3 +1,5 @@
+package entidades;
+
 public class PlanoAtividade {
 
     private int id;
@@ -46,7 +48,7 @@ public class PlanoAtividade {
 
     @Override
     public String toString() {
-        return "PlanoAtividade{" +
+        return "entidades.PlanoAtividade{" +
                 "id=" + id +
                 ", descricao='" + descricao + '\'' +
                 ", horasPrevistas=" + horasPrevistas +

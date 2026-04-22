@@ -1,3 +1,5 @@
+package entidades;
+
 import enums.Status;
 
 public class Inscricao {
@@ -56,7 +58,7 @@ public class Inscricao {
 
     @Override
     public String toString() {
-        return "Inscricao{" +
+        return "entidades.Inscricao{" +
                 "id=" + id +
                 ", oportunidade=" + oportunidade +
                 ", dataInscricao='" + dataInscricao + '\'' +

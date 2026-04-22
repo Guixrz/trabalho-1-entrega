@@ -1,3 +1,5 @@
+package entidades;
+
 import enums.Modalidade;
 import enums.TipoOportunidade;
 
@@ -79,7 +81,7 @@ public class Oportunidade {
 
     @Override
     public String toString() {
-        return "Oportunidade{" +
+        return "entidades.Oportunidade{" +
                 "id=" + id +
                 ", titulo='" + titulo + '\'' +
                 ", tipo=" + tipo +
