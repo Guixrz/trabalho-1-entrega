@@ -10,6 +10,7 @@ public class GrupoMembro {
     private LocalDate dataSaida;
 
     public GrupoMembro(int id, Grupo grupo, int usuarioId, LocalDate dataEntrada, LocalDate dataSaida) {
+        this.id = id;
         this.grupo = grupo;
         this.usuarioId = usuarioId;
         this.dataEntrada = dataEntrada;
