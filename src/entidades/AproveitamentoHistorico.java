@@ -1,3 +1,5 @@
+import entidades.Enums.StatusAproveitamento;
+
 public class AproveitamentoHistorico {
     private String dataAlteracao;
     private StatusAproveitamento statusAnterior;
