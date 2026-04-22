@@ -1,22 +1,26 @@
 package entidades;
 
 public class Curso {
-    private int id;
+    private int codigo;
     private String nome;
     private int cargaHoraria;
     private String versaoPPC;
-    
 
-    public Curso(int id, String nome, int cargaHoraria, String versaoPPC){
-        this.id = id;
+
+    public Curso(String nome, int codigo, int cargaHoraria, String versao_ppc) {
         this.nome = nome;
+        this.codigo = codigo;
         this.cargaHoraria = cargaHoraria;
-        this.versaoPPC = versaoPPC;
+        this.versaoPPC = versao_ppc;
     }
 
+    public void atualizarPPC(int horas,String versao){
+        this.cargaHoraria = horas;
+        this.versaoPPC = versao;
+    }
 
     public int getId(){
-        return id;
+        return codigo;
     }
 
     public String getNome(){

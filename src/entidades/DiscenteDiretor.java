@@ -1,34 +1,28 @@
 package entidades;
 
-import java.time.LocalDate;
+import entidades.enums.Modalidade;
+import entidades.enums.Papel;
+import entidades.enums.Status;
+import entidades.enums.Tipo;
 
-public class DiscenteDiretor {
-    private int id;
-    private int discenteId;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class DiscenteDiretor extends  Discente {
     private Grupo grupo;
     private String cargo;
     private LocalDate dataInicio;
     private LocalDate dataFim;
-    
-    public DiscenteDiretor(int id, int discente, Grupo grupo, String cargo, LocalDate dataInicio, LocalDate dataFim) {
-        this.id = id;
-        this.discenteId = discente;
+
+    public DiscenteDiretor(String nome, String email, String senha,
+                           Papel papel, String matricula, int semestreAtual,
+                           Curso curso, Grupo grupo, String cargo,
+                           LocalDate dataInicio, LocalDate dataFim) {
+        super(nome, email, senha, Papel.discenteDiretor, matricula, semestreAtual, curso);
         this.grupo = grupo;
         this.cargo = cargo;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getDiscente() {
-        return discenteId;
-    }
-
-    public void setDiscente(int discente) {
-        this.discenteId = discente;
     }
 
     public Grupo getGrupo() {
@@ -62,6 +56,14 @@ public class DiscenteDiretor {
     public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
-    
+
+    public Oportunidade criarOportunidade(String titulo, String descricao, Tipo tipo,
+                                          Modalidade modalidade, int carga_horaria,
+                                          int vagas, Status status, LocalDateTime inicio
+            , Usuarios autor, Docente responsavel) {
+        return new Oportunidade(titulo,descricao,tipo,modalidade,carga_horaria,vagas
+                ,status,inicio,autor,responsavel);
+    }
+
 }
 

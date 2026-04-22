@@ -2,41 +2,33 @@ package entidades;
 
 import entidades.enums.Status;
 
+import java.time.LocalDate;
+
 public class Inscricao {
-    private int id;
     private Oportunidade oportunidade;
-    private String dataInscricao;
+    private Discente discente;
     private Status status;
+    private String motivacao;
+    private LocalDate dataAprovacao;
 
-    public Inscricao(int id, Oportunidade oportunidade, String dataInscricao, Status status) {
-        this.id = id;
+    public Inscricao(Oportunidade o,Discente d){
+        this.oportunidade = o;
+        this.discente = d;
+    }
+
+    public Inscricao(Oportunidade oportunidade, Discente discente, Status status, String motivacao) {
         this.oportunidade = oportunidade;
-        this.dataInscricao = dataInscricao;
+        this.discente = discente;
         this.status = status;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.motivacao = motivacao;
     }
 
     public Oportunidade getOportunidade() {
         return oportunidade;
     }
 
-    public void setOportunidade(Oportunidade oportunidade) {
-        this.oportunidade = oportunidade;
-    }
-
-    public String getDataInscricao() {
-        return dataInscricao;
-    }
-
-    public void setDataInscricao(String dataInscricao) {
-        this.dataInscricao = dataInscricao;
+    public Discente getDiscente() {
+        return discente;
     }
 
     public Status getStatus() {
@@ -47,22 +39,31 @@ public class Inscricao {
         this.status = status;
     }
 
-    public void aprovar(){
-        this.status = Status.APROVADA;
+    public String getMotivacao() {
+        return motivacao;
+    }
+
+    public LocalDate getDataAprovacao() {
+        return dataAprovacao;
+    }
+
+    public void aprovar(LocalDate data){
+        this.status = Status.publicada;
+        this.dataAprovacao = data;
     }
 
     public void rejeitar(){
-        this.status = Status.REJEITADA;
+        this.status = Status.cancelada;
     }
-
 
     @Override
     public String toString() {
-        return "entidades.Inscricao{" +
-                "id=" + id +
-                ", oportunidade=" + oportunidade +
-                ", dataInscricao='" + dataInscricao + '\'' +
+        return "Inscricao{" +
+                "oportunidade=" + oportunidade +
+                ", discente=" + discente +
                 ", status=" + status +
+                ", motivacao='" + motivacao + '\'' +
+                ", dataAprovacao=" + dataAprovacao +
                 '}';
     }
 }

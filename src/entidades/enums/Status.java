@@ -1,8 +1,10 @@
 package entidades.enums;
 
 public enum Status {
-    PENDENTE,
-    APROVADA,
-    REJEITADA,
-    CANCELADA
+    rascunho,
+    pendente,
+    publicada,
+    em_progresso,
+    encerrada,
+    cancelada,
 }

@@ -1,36 +1,38 @@
 package entidades;
 
 import entidades.enums.Modalidade;
-import entidades.enums.TipoOportunidade;
+import entidades.enums.Status;
+import entidades.enums.Tipo;
+
+import java.time.LocalDateTime;
 
 public class Oportunidade {
-    private int id;
     private String titulo;
     private String descricao;
-    private TipoOportunidade tipo;
+    private Tipo tipo;
     private Modalidade modalidade;
     private int cargaHoraria;
     private int vagasDisponiveis;
+    private Status status;
+    private LocalDateTime inicio;
+    private LocalDateTime fim;
+    private Usuarios autor;
+    private Docente responsavel;
 
-
-    public Oportunidade(int id, String titulo, String descricao, TipoOportunidade tipo, Modalidade modalidade, int cargaHoraria, int vagasDisponiveis) {
-        this.id = id;
+    public Oportunidade(String titulo, String descricao, Tipo tipo, Modalidade modalidade,
+                        int cargaHoraria, int vagasDisponiveis, Status status, LocalDateTime inicio,
+                        Usuarios autor, Docente responsavel) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.tipo = tipo;
         this.modalidade = modalidade;
-        this.cargaHoraria = cargaHoraria;
-        this.vagasDisponiveis = vagasDisponiveis;
+        this.cargaHoraria = Oportunidade.this.cargaHoraria;
+        this.vagasDisponiveis = Oportunidade.this.vagasDisponiveis;
+        this.status = status;
+        this.inicio = inicio;
+        this.autor = autor;
+        this.responsavel = responsavel;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitulo() {
         return titulo;
     }
@@ -47,47 +49,93 @@ public class Oportunidade {
         this.descricao = descricao;
     }
 
-    public TipoOportunidade getTipo() {
+    public Tipo getTipo() {
         return tipo;
-    }
-
-    public void setTipo(TipoOportunidade tipo) {
-        this.tipo = tipo;
     }
 
     public Modalidade getModalidade() {
         return modalidade;
     }
 
-    public void setModalidade(Modalidade modalidade) {
-        this.modalidade = modalidade;
-    }
-
-    public int getCargaHoraria() {
+    public int getCarga_horaria() {
         return cargaHoraria;
     }
 
-    public void setCargaHoraria(int cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
-    }
-
-    public int getVagasDisponiveis() {
+    public int getVagas() {
         return vagasDisponiveis;
     }
 
-    public void setVagasDisponiveis(int vagasDisponiveis) {
+    public void setVagas(int vagasDisponiveis) {
         this.vagasDisponiveis = vagasDisponiveis;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(LocalDateTime inicio) {
+        this.inicio = inicio;
+    }
+
+    public LocalDateTime getFim() {
+        return fim;
+    }
+
+    public void setFim(LocalDateTime fim) {
+        this.fim = fim;
+    }
+
+    public Usuarios getAutor() {
+        return autor;
+    }
+
+    public Usuarios getResponsavel() {
+        return responsavel;
+    }
+
+    public void publicar() {
+        this.status = Status.publicada;
+    }
+
+    public void fecharInscricao() {
+        this.status = Status.encerrada;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Oportunidade)) return false;
+        Oportunidade op = (Oportunidade) o;
+        return this.titulo.equals(op.titulo);
+    }
+
+    @Override
+    public int hashCode() {
+        return titulo.hashCode();
     }
 
     @Override
     public String toString() {
-        return "entidades.Oportunidade{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
+        return "Oportunidade{" +
+                "titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
                 ", tipo=" + tipo +
                 ", modalidade=" + modalidade +
                 ", cargaHoraria=" + cargaHoraria +
                 ", vagasDisponiveis=" + vagasDisponiveis +
+                ", status=" + status +
+                ", inicio=" + inicio +
+                ", fim=" + fim +
+                ", autor=" + autor +
+                ", responsavel=" + responsavel +
                 '}';
     }
 }
